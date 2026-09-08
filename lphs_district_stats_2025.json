@@ -1,0 +1,74 @@
+[
+  {
+    "district": "Petaling",
+    "records": 88,
+    "units_known_sum": 62446,
+    "siap_records": 23,
+    "pembinaan_records": 11,
+    "perancangan_records": 54
+  },
+  {
+    "district": "Hulu Langat",
+    "records": 94,
+    "units_known_sum": 55603,
+    "siap_records": 35,
+    "pembinaan_records": 13,
+    "perancangan_records": 46
+  },
+  {
+    "district": "Sepang",
+    "records": 57,
+    "units_known_sum": 43293,
+    "siap_records": 17,
+    "pembinaan_records": 9,
+    "perancangan_records": 31
+  },
+  {
+    "district": "Klang",
+    "records": 51,
+    "units_known_sum": 26739,
+    "siap_records": 15,
+    "pembinaan_records": 3,
+    "perancangan_records": 33
+  },
+  {
+    "district": "Gombak",
+    "records": 55,
+    "units_known_sum": 22439,
+    "siap_records": 10,
+    "pembinaan_records": 6,
+    "perancangan_records": 39
+  },
+  {
+    "district": "Kuala Selangor",
+    "records": 42,
+    "units_known_sum": 16695,
+    "siap_records": 16,
+    "pembinaan_records": 7,
+    "perancangan_records": 19
+  },
+  {
+    "district": "Kuala Langat",
+    "records": 26,
+    "units_known_sum": 16673,
+    "siap_records": 4,
+    "pembinaan_records": 6,
+    "perancangan_records": 16
+  },
+  {
+    "district": "Hulu Selangor",
+    "records": 28,
+    "units_known_sum": 10218,
+    "siap_records": 13,
+    "pembinaan_records": 3,
+    "perancangan_records": 12
+  },
+  {
+    "district": "Sabak Bernam",
+    "records": 6,
+    "units_known_sum": 266,
+    "siap_records": 2,
+    "pembinaan_records": 2,
+    "perancangan_records": 2
+  }
+]

@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ms">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Dashboard Perumahan Mampu Milik Negeri Selangor — Selangor Urban Observatory">
+  <meta name="theme-color" content="#d6282f">
+  <title>Selangor Affordable Housing Intelligence | SUO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand">
+      <img src="assets/img/suo-logo.png" alt="Selangor Urban Observatory (SUO)" class="suo-logo">
+      <div class="module-name"><span>Digital Applications</span><strong>Affordable Housing Intelligence</strong></div>
+    </div>
+
+    <nav>
+      <a class="active" href="#overview"><i></i>Executive Overview</a>
+      <a href="#spatial"><i></i>Spatial Intelligence</a>
+      <a href="#pipeline"><i></i>Project Pipeline</a>
+      <a href="#register"><i></i>Project Register</a>
+      <a href="#sources"><i></i>Data & Sources</a>
+    </nav>
+
+    <div class="sidebar-card">
+      <small>SUO DATA PRINCIPLE</small>
+      <b>Verified data first</b>
+      <p>Medan yang belum dapat disahkan kekal kosong dan tidak digunakan untuk membina KPI rasmi.</p>
+    </div>
+  </aside>
+
+  <main>
+    <header class="topbar">
+      <div>
+        <span class="eyebrow">SELANGOR URBAN OBSERVATORY • HOUSING INTELLIGENCE</span>
+        <h1>Dashboard Perumahan Mampu Milik Negeri Selangor</h1>
+        <p>Supply • Delivery • Waiting List • Project Pipeline • Spatial Intelligence</p>
+      </div>
+      <div class="header-actions">
+        <span class="snapshot"><span class="live-dot"></span>LPHS Q1 2025 + Verified 2026</span>
+        <button id="downloadCsv">Download CSV</button>
+      </div>
+    </header>
+
+    <section class="page hero-section" id="overview">
+      <div class="notice">
+        <div><b>Housing Intelligence v1.3</b><span>Masterlist LPHS Q1 2025 kini digabungkan dengan rekod dan KPI 2026 yang telah disahkan.</span></div>
+        <div class="coverage" id="coverageBadge">Loading data…</div>
+      </div>
+
+      <div class="filters">
+        <label>Skim<select id="schemeFilter"><option value="">Semua Skim</option></select></label>
+        <label>Daerah<select id="districtFilter"><option value="">Semua Daerah</option></select></label>
+        <label>Status<select id="statusFilter"><option value="">Semua Status</option></select></label>
+        <label>Snapshot<select id="snapshotFilter"><option value="">Semua Snapshot</option></select></label>
+        <label class="search-label">Carian Projek<input id="searchFilter" placeholder="Contoh: Kwasa, Elmina…"></label>
+      </div>
+
+      <div class="kpi-grid" id="kpiGrid"></div>
+
+      <div class="baseline-strip" id="baselineStrip"></div>
+
+      <div class="grid-2">
+        <article class="card">
+          <div class="card-head"><div><span class="eyebrow">STATEWIDE</span><h2>Waiting List & Occupancy</h2></div><span class="tag">Official 2026</span></div>
+          <div class="chart-wrap"><canvas id="waitingChart"></canvas></div>
+        </article>
+
+        <article class="card policy-card">
+          <div class="card-head"><div><span class="eyebrow">POLICY</span><h2>Affordability Framework</h2></div></div>
+          <div class="policy-panel">
+            <div class="price-block"><span>Rumah Selangorku 3.0</span><strong id="rskuPrice">—</strong><small>Harga kawalan maksimum dalam snapshot data</small></div>
+            <div class="mini-stat"><span>RSKU ditawarkan 2021–2025</span><strong id="rskuOffered">—</strong></div>
+            <div class="mini-stat"><span>Pencapaian sasaran</span><strong id="rskuAchievement">—</strong></div>
+            <div class="mini-stat"><span>RSKU belum terjual</span><strong id="rskuUnsold">—</strong></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="page" id="spatial">
+      <div class="section-title"><div><span class="eyebrow">SPATIAL INTELLIGENCE</span><h2>Rumah Idaman Pipeline Mengikut Daerah</h2></div><p>Saiz bulatan mewakili jumlah unit dalam pembinaan. Titik ialah representasi daerah, bukan koordinat projek.</p></div>
+      <div class="grid-map">
+        <article class="card map-card"><div id="map"></div><div class="map-note">District aggregation • exact project geometry only after verification</div></article>
+        <article class="card"><div class="card-head"><div><span class="eyebrow">2026 PIPELINE</span><h2>Unit by District</h2></div></div><div class="chart-wrap tall"><canvas id="districtChart"></canvas></div><div class="metric-strip" id="pipelineStrip"></div></article>
+      </div>
+    </section>
+
+    <section class="page" id="pipeline">
+      <div class="section-title"><div><span class="eyebrow">DELIVERY</span><h2>Rumah Idaman Construction Pipeline</h2></div><p>9 projek rasmi berjumlah 14,081 unit.</p></div>
+      <div class="timeline-grid" id="pipelineCards"></div>
+    </section>
+
+    <section class="page" id="register">
+      <div class="section-title"><div><span class="eyebrow">MASTER DATA</span><h2>Combined Project Register</h2></div><p>LPHS Q1 2025 ialah baseline sejarah. Rekod 2026 dikekalkan sebagai update berasingan supaya audit trail dan perubahan status tidak hilang.</p></div>
+      <article class="card table-card"><div class="table-meta"><span id="recordCount">0 records</span><span>Source-traceable masterlist</span></div><div class="table-scroll"><table><thead><tr><th>Project</th><th>Scheme</th><th>District</th><th>PBT</th><th>Units</th><th>Status</th><th>Snapshot</th><th>Developer / Location</th><th>Verification</th></tr></thead><tbody id="projectTable"></tbody></table></div></article>
+    </section>
+
+    <section class="page" id="sources">
+      <div class="section-title"><div><span class="eyebrow">GOVERNANCE</span><h2>Data Coverage & Sources</h2></div><p>Setiap KPI dan rekod projek menggunakan `source_id` untuk audit trail.</p></div>
+      <div class="coverage-grid">
+        <div class="coverage-card"><span>LPHS Q1 2025</span><strong>447 records</strong><p>135 siap • 60 pembinaan • 252 perancangan.</p></div>
+        <div class="coverage-card"><span>State KPI 2026</span><strong>Verified</strong><p>RSKU, Rumah Idaman, PPR dan Smart Sewa.</p></div>
+        <div class="coverage-card"><span>Idaman pipeline</span><strong>9 / 9</strong><p>Units + district + target completion.</p></div>
+        <div class="coverage-card"><span>Completed Idaman</span><strong>6 / 6 names</strong><p>Project-level unit split not yet used.</p></div>
+        <div class="coverage-card warning"><span>Project coordinates</span><strong>Not supplied in LPHS 2025</strong><p>Latitude/longitude kekal kosong sehingga proses geocoding dan semakan dibuat.</p></div>
+      </div>
+      <article class="card sources-card"><div id="sourceList"></div></article>
+    </section>
+
+    <footer><img src="assets/img/suo-logo.png" alt="SUO"><span>Selangor Urban Observatory • Affordable Housing Intelligence v1.3 • LPHS Q1 2025 + Verified 2026</span></footer>
+  </main>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

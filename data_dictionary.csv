@@ -1,0 +1,30 @@
+﻿field,description
+project_id,Unique record identifier
+scheme,Housing scheme
+project_name,Project name as supplied by source; may be blank in LPHS planning rows
+display_name,UI fallback name when official project name is not supplied
+district,District extracted from source text or safely derived from PBT when missing
+pbt,Local authority
+mukim,Mukim extracted from location text where available
+developer,Developer as supplied by source
+category,Housing category where available
+house_type,House type where available
+units,Unit count from the record/source
+price_min_rm,Minimum price in RM
+price_max_rm,Maximum price in RM
+status,Project/status snapshot
+progress_pct,Progress where verified
+expected_completion,Expected completion where verified
+completed_year,Completion year where verified
+latitude,Latitude; blank until verified
+longitude,Longitude; blank until verified
+location_precision,Description of spatial precision/source
+source_id,Source audit-trail ID
+source_date,Source/snapshot date
+verification,Verification or data-quality note
+snapshot,Dataset snapshot label
+record_scope,Historical baseline or verified update
+source_row,Sequential row within source section
+location_text,Full location/lot text from source
+historical_match_ids,Related LPHS 2025 row IDs used to enrich a 2026 record
+historical_match_note,Merge/matching note

@@ -1,0 +1,39 @@
+[
+  {
+    "source_id": "SRC-LPHS-RSKU-Q1-2025",
+    "title": "DATA RSKU JPBD_Q1 2025_USP LPHS — Maklumat Rumah Mampu Milik di Negeri Selangor",
+    "type": "LPHS masterlist supplied by user (DOCX)",
+    "usage": "447 historical baseline records: 135 siap bina, 60 dalam pembinaan, 252 dalam perancangan. No project coordinates supplied.",
+    "source_date": "2025-Q1"
+  },
+  {
+    "source_id": "SRC-DUN-RSKU-2026",
+    "title": "Dewan Negeri Selangor — Rumah Selangorku / Prestasi Perumahan 2026",
+    "type": "Official state assembly response",
+    "usage": "Statewide RSKU KPI"
+  },
+  {
+    "source_id": "SRC-DUN-IDAMAN-2026",
+    "title": "Dewan Negeri Selangor — Rumah Idaman Selangor 2026",
+    "type": "Official state assembly response",
+    "usage": "Completed and construction totals / project names"
+  },
+  {
+    "source_id": "SRC-IDAMAN-PIPELINE-2026",
+    "title": "Lampiran rasmi projek Rumah Idaman dalam pembinaan 2026",
+    "type": "Official appendix",
+    "usage": "Project-level units, district and expected completion"
+  },
+  {
+    "source_id": "SRC-DUN-RENTAL-2026",
+    "title": "Dewan Negeri Selangor — PPR / Smart Sewa / Rumah Selangorku 2026",
+    "type": "Official state assembly response",
+    "usage": "PPR and Smart Sewa occupancy / waiting data"
+  },
+  {
+    "source_id": "SRC-LPHS-RSKU-JAN2026",
+    "title": "LPHS — Senarai Projek Rumah Selangorku 15 Januari 2026",
+    "type": "Official LPHS project list",
+    "usage": "Initial RSKU project records"
+  }
+]

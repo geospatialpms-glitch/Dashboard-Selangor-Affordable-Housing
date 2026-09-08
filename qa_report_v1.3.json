@@ -1,0 +1,30 @@
+{
+  "lphs_records": 447,
+  "combined_records": 463,
+  "baseline_status": {
+    "Siap Dibina": {
+      "records": 135,
+      "units_known_sum": 42779,
+      "records_with_unit": 135,
+      "records_without_unit": 0
+    },
+    "Dalam Pembinaan": {
+      "records": 60,
+      "units_known_sum": 25896,
+      "records_with_unit": 60,
+      "records_without_unit": 0
+    },
+    "Dalam Perancangan": {
+      "records": 252,
+      "units_known_sum": 185697,
+      "records_with_unit": 249,
+      "records_without_unit": 3
+    }
+  },
+  "district_coverage": 447,
+  "mukim_coverage": 382,
+  "named_project_records": 192,
+  "unnamed_project_records": 255,
+  "coordinate_records": 0,
+  "quality_flagged_records": 259
+}
