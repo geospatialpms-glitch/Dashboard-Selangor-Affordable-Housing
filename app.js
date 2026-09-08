@@ -68,5 +68,52 @@ function filtered(){const scheme=document.getElementById('schemeFilter').value,d
 function statusClass(s){if((s||'').includes('Siap'))return 'status-done';if((s||'').includes('Pembinaan'))return 'status-build';return 'status-other'}
 function renderFiltered(){const ps=filtered();document.getElementById('recordCount').textContent=`${ps.length} records`;document.getElementById('projectTable').innerHTML=ps.map(p=>`<tr><td><b>${safe(p.display_name||p.project_name)}</b><br><small>${p.project_id}</small></td><td>${safe(p.scheme)}</td><td>${safe(p.district)}</td><td>${safe(p.pbt)}</td><td>${fmt(p.units)}</td><td><span class="status-pill ${statusClass(p.status)}">${safe(p.status)}</span></td><td><span class="snapshot-pill">${safe(p.snapshot)}</span></td><td class="loc-cell"><b>${safe(p.developer)}</b>${p.location_text?`<small>${p.location_text}</small>`:'<small>Lokasi terperinci belum tersedia</small>'}</td><td class="verification">${safe(p.verification)}</td></tr>`).join('')}
 function renderSources(){document.getElementById('sourceList').innerHTML=sources.map(s=>`<div class="source-row"><code>${s.source_id}</code><div><b>${s.title}</b><small>${s.type}</small></div><span>${s.usage}</span></div>`).join('')}
+
+// Sidebar navigation: move the active highlight to the selected/current section.
+function initSidebarNav(){
+  const links=[...document.querySelectorAll('.sidebar nav a[href^="#"]')];
+  const sections=links
+    .map(link=>document.querySelector(link.getAttribute('href')))
+    .filter(Boolean);
+
+  if(!links.length||!sections.length)return;
+
+  const setActive=id=>{
+    links.forEach(link=>{
+      const isActive=link.getAttribute('href')===`#${id}`;
+      link.classList.toggle('active',isActive);
+      if(isActive) link.setAttribute('aria-current','page');
+      else link.removeAttribute('aria-current');
+    });
+  };
+
+  links.forEach(link=>{
+    link.addEventListener('click',()=>{
+      const id=link.getAttribute('href').slice(1);
+      setActive(id);
+    });
+  });
+
+  // Keep the orange active state in sync when the user scrolls manually.
+  const observer=new IntersectionObserver(entries=>{
+    const visible=entries
+      .filter(entry=>entry.isIntersecting)
+      .sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
+    if(visible) setActive(visible.target.id);
+  },{
+    root:null,
+    rootMargin:'-18% 0px -62% 0px',
+    threshold:[0,0.01,0.15,0.35]
+  });
+
+  sections.forEach(section=>observer.observe(section));
+
+  const initial=(location.hash&&document.querySelector(location.hash))
+    ? location.hash.slice(1)
+    : sections[0].id;
+  setActive(initial);
+}
+
 document.getElementById('downloadCsv').addEventListener('click',()=>{const a=document.createElement('a');a.href='projects.csv';a.download='Selangor_Affordable_Housing_projects.csv';a.click()});
+initSidebarNav();
 load();
