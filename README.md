@@ -14,12 +14,12 @@ Dashboard SUO untuk pemantauan perumahan mampu milik Negeri Selangor.
 The 2025 masterlist is treated as a **historical baseline**, not silently overwritten by 2026 records. Selected high-confidence historical matches enrich 2026 records with PBT/location context, while the 2026 source remains authoritative for 2026 status/KPI.
 
 ## Important files
-- `data/projects.csv` — combined master records
-- `data/projects.json` — web-ready version
-- `data/lphs_district_stats_2025.json` — 2025 baseline aggregation
-- `data/qa_report_v1.3.json` — extraction/coverage QA
-- `data/state_summary.json` — statewide 2026 KPI + LPHS 2025 baseline summary
-- `data/sources.json` — source registry
+- `projects.csv` — combined master records
+- `projects.json` — web-ready version
+- `lphs_district_stats_2025.json` — 2025 baseline aggregation
+- `qa_report_v1.3.json` — extraction/coverage QA
+- `state_summary.json` — statewide 2026 KPI + LPHS 2025 baseline summary
+- `sources.json` — source registry
 
 ## GitHub Pages
 Deploy from `main` → `/ (root)`.

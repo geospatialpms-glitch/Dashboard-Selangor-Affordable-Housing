@@ -8,7 +8,7 @@ let waitingChart,districtChart,map;
 async function load(){
   try{
     [projects,summary,districtStats,sources]=await Promise.all([
-      fetch('data/projects.json').then(r=>r.json()),fetch('data/state_summary.json').then(r=>r.json()),fetch('data/district_stats.json').then(r=>r.json()),fetch('data/sources.json').then(r=>r.json())
+      fetch('projects.json').then(r=>r.json()),fetch('state_summary.json').then(r=>r.json()),fetch('district_stats.json').then(r=>r.json()),fetch('sources.json').then(r=>r.json())
     ]);
     buildFilters(); renderAll(); initMap(); renderSources();
     document.getElementById('coverageBadge').textContent=`${projects.length} source-traceable records • 447 LPHS baseline + 2026 updates`;
@@ -68,5 +68,5 @@ function filtered(){const scheme=document.getElementById('schemeFilter').value,d
 function statusClass(s){if((s||'').includes('Siap'))return 'status-done';if((s||'').includes('Pembinaan'))return 'status-build';return 'status-other'}
 function renderFiltered(){const ps=filtered();document.getElementById('recordCount').textContent=`${ps.length} records`;document.getElementById('projectTable').innerHTML=ps.map(p=>`<tr><td><b>${safe(p.display_name||p.project_name)}</b><br><small>${p.project_id}</small></td><td>${safe(p.scheme)}</td><td>${safe(p.district)}</td><td>${safe(p.pbt)}</td><td>${fmt(p.units)}</td><td><span class="status-pill ${statusClass(p.status)}">${safe(p.status)}</span></td><td><span class="snapshot-pill">${safe(p.snapshot)}</span></td><td class="loc-cell"><b>${safe(p.developer)}</b>${p.location_text?`<small>${p.location_text}</small>`:'<small>Lokasi terperinci belum tersedia</small>'}</td><td class="verification">${safe(p.verification)}</td></tr>`).join('')}
 function renderSources(){document.getElementById('sourceList').innerHTML=sources.map(s=>`<div class="source-row"><code>${s.source_id}</code><div><b>${s.title}</b><small>${s.type}</small></div><span>${s.usage}</span></div>`).join('')}
-document.getElementById('downloadCsv').addEventListener('click',()=>{const a=document.createElement('a');a.href='data/projects.csv';a.download='Selangor_Affordable_Housing_projects.csv';a.click()});
+document.getElementById('downloadCsv').addEventListener('click',()=>{const a=document.createElement('a');a.href='projects.csv';a.download='Selangor_Affordable_Housing_projects.csv';a.click()});
 load();
